@@ -1,40 +1,69 @@
 <html>
+  <head> <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
     <title>
-        My personel Page
+      My personel Page
     </title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
 
-<body>
-    <img src="img/scenary.jpg" alt="Smiley face" height="400" width="1800">
-    <div>
-        <h3>My favourite food</h3>
-        <ul>
-            <li>Sphaghetti Bolonese</li>
-            <li>Meat</li>
-            <li>Roast chilli chicken</li>
-        </ul>
-    </div>
-    <div>
-        <h3>My Favourite sesons </h3>
-        <ol>
-            <li>Spring</li>
-            <li>Winter</li>
-            <li>Autumn</li>
-            <li>Summer</li>
-        </ol>
-    </div>
-    <div>
-        <h5>Why Code Nation</h5>
-        <p>Description goes here</p>
+  <body>
+    <img src="img/blueline.jpg" alt="Smiley face" height="300" width="2000" />
+    <div class="navbar">
+        <a href="#home">Home</a>
+        
+        <div class="dropdown">
+          <button class="dropbtn" id = "butprocareer">Professional Career
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+           
+            <a href="#" onclick="actionEvent(event,'Education','butprocareer')" >Education </a>
+            <a href="#">Lecturer</a>
+            <a href="#">Research Fellow</a>
+            <a href="#">Developer</a>
+          </div>
+        </div> 
 
-        <footer>
-            <p>My Links</p>
-            <p>linkedIn <a href="mailto:someone@example.com">
-                    someone@example.com</a>.</p>
-        </footer>
-</body>
+        <div class="dropdown">
+            <button class="dropbtn">My Interests
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Music</a>
+              <a href="#">Photography</a>
+              <a href="#">Media</a>
+              <a href="#">Travel</a>
+            </div>
+          </div> 
 
+        <a href="#Intrests"> My Gears</a>
+      </div>
+      <div id="Education" class="tabcontent" >
+          <h3>Education</h3>
+          <p>Education Content goes here</p> 
+        </div>
+
+
+
+    <script>
+
+      function actionEvent(event, actionName,actionParent){
+        document.getElementById(actionName).style.display = "block";
+        //document.getElementById(actionParent).style.backgroundColor = "lightgrey";
+
+      }
+    </script>
+    
+   
+    
+
+
+    <footer>
+      <p>My Links</p>
+      <p>
+        linkedIn <a href="mailto:someone@example.com"> someone@example.com</a>.
+      </p>
+    </footer>
+  </body>
 </html>
