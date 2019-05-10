@@ -7,39 +7,54 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
 
-  <body>
+  <body onload="actionEvent('aboutMe')">
+
     <img src="img/blueline.jpg" alt="Smiley face" height="300" width="2000" />
-    <div class="navbar">
-        <a href="#home">Home</a>
-        
-        <div class="dropdown">
-          <button class="dropbtn" id = "butprocareer">Professional Career
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-           
-            <a href="#" onclick="actionEvent(event,'Education','butprocareer')" >Education </a>
-            <a href="#">Lecturer</a>
-            <a href="#">Research Fellow</a>
-            <a href="#">Developer</a>
+    <div class="navbar" id="navBar">
+        <a id="linkaboutme" href="#about" onclick="actionEvent('aboutMe')">About Me</a>
+        <a id="linkeducation" href="#education" onclick="actionEvent('education')">Education</a>
+        <a id="linkproexperiance" href="#pexperiance" onclick="actionEvent('proexperiance')">Professional Experiance</a>
+        <a id="linkprojects" href="#projects" onclick="actionEvent('projects')">Projects</a>
+        <a id="linkpersonalinterest" href="#personal" onclick="actionEvent('perinterest')">Personal Interests</a>
+
+    </div>
+
+      <div id="maincontent">
+          <!----ABOUT ME TAB-->
+          <div id="idabout" class="tabcontent">
+            About Me content goes here
+          </div>        
+
+
+          <!----EDUCATION TAB-->
+         <div id="education" class="tabcontent">
+             test
+           <p> PhD in Information and Communication Engineering  from Anna University Chennai <br> </p>
+              <p>Masters in Computer Science and Engineering <br></p>
+            <p> MSc in Software Engineering <br>/p>
+
           </div>
-        </div> 
 
-        <div class="dropdown">
-            <button class="dropbtn">My Interests
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Music</a>
-              <a href="#">Photography</a>
-              <a href="#">Media</a>
-              <a href="#">Travel</a>
-            </div>
-          </div> 
+       
+        </div>
+        <!---------------Professional Experiance Tab-->
+        <div id="proexperiance" class="tabcontent">
+          <p> Experiance Contents goes here</p>
+        </div>
 
-        <a href="#Intrests"> My Gears</a>
-      </div>
-      <div id="Education" class="tabcontent" >
+        <!---------------Projects-------------->
+        <div id="projects" class="tabcontent">
+            <p> About projects goes here</p>
+        </div>
+
+         <!---------------Personal Interests-------------->
+         <div id="pinterest" class="tabcontent">
+            <p> About ppersonal Intrest goes here</p>
+        </div>
+
+
+      
+      <div id="education" class="tabcontent" >
           <h3>Education</h3>
           <p>Education Content goes here</p> 
         </div>
@@ -48,15 +63,86 @@
 
     <script>
 
-      function actionEvent(event, actionName,actionParent){
-        document.getElementById(actionName).style.display = "block";
-        //document.getElementById(actionParent).style.backgroundColor = "lightgrey";
+  
+      var activeLink = "linkaboutme"
+
+      function actionEvent(action){
+        switch(action){
+          case 'aboutMe':
+            
+          func_AboutMe(action);
+          break;
+          case 'education':
+            func_Education(action);
+          break;
+          case 'proexperiance':
+            func_ProExperiance(action);
+          break;
+          case 'projects':
+            func_Projects(action);
+            break;
+          case 'perinterest':
+            func_PerInterest(action);
+            break;
+          default:
+            console.log('Default');
+          break;
+    
+        }
+      }
+      function func_ChangeTabContents(newTab){
+
+          var x = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < x.length; i++) {
+           x[i].style.display="none";
+        }
+       ab = document.getElementById(newTab);
+        ab.style.display="block";
+
 
       }
+
+
+      function func_PerInterest(action){
+        console.log(action);
+        func_ChangeTabContents("pinterest");
+        func_MakeLinkActive("linkpersonalinterest");
+      }
+      function func_Projects(action){
+        console.log(action);
+        func_ChangeTabContents("projects");
+        func_MakeLinkActive("linkprojects");
+      }
+      function func_ProExperiance(action){
+        console.log(action);
+        func_ChangeTabContents("proexperiance");
+        func_MakeLinkActive("linkproexperiance");
+      }
+      function func_Education(action){
+        console.log(action);
+        func_ChangeTabContents("education");
+        func_MakeLinkActive("linkeducation");
+        
+
+      }
+      function func_AboutMe(action){
+        console.log(action);
+        func_ChangeTabContents("idabout");
+        
+        func_MakeLinkActive("linkaboutme");
+        
+      }
+      function func_MakeLinkActive(newLink){
+        document.getElementById(activeLink).className = "inactivelink";
+        document.getElementById(newLink).className= "activelink";
+        activeLink = newLink;
+      }
+      
+
     </script>
     
    
-    
+  
 
 
     <footer>
